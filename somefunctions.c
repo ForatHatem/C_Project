@@ -32,12 +32,14 @@ void enterMobileNum (char*mobileNum)
 
 		//scanf("%s", mobileNum);
 		//fflush(stdin);
-		
-		fgets(mobileNum,11,stdin);
+
+		//fgets(mobileNum,11,stdin);
+		fgets(mobileNum,20,stdin);
 		ln = strlen(mobileNum) - 1;
 		if(mobileNum[(int)ln] == '\n')
-			mobileNum[(int)ln] = '\n';
-		
+            mobileNum[(int)ln] = '\0';
+			//mobileNum[(int)ln] = '\n';
+
 		//fgets(mobileNum,11,stdin);
 		//[0][1][2][3][4][5][6][7][8][9][10] 11 elements
 		while(mobileNum[i] != '\0')
@@ -77,7 +79,7 @@ double enterPrice (double min)
 	char sPrice [20];
 	char * end;
 	size_t ln = 0;
-	
+
 	do
 	{
 		printf("Enter your price: ");
@@ -87,8 +89,8 @@ double enterPrice (double min)
 			sPrice[(int)ln] = '\0';
 		//convert to double
 		price = strtod(sPrice,&end);
-	}while(price > min);
-	
+	}while(price < min);
+
 
 	return price;
 }
@@ -105,20 +107,20 @@ void enterName (char*firstName,char*lastName)
 		}
 		else
             	printf("Enter your name:\n");
-            	
+
             	printf("First name: ");
             	fgets(firstName,20,stdin);
-            	
+
             	ln = strlen(firstName) - 1;
             	if(firstName[(int)ln] == '\n')
             		firstName[(int)ln] = '\0';
-            	
+
             	printf("\nLast name: ");
             	fgets(lastName,20,stdin);
             	ln = strlen(lastName) - 1;
             	if(lastName[(int)ln] == '\n')
             		lastName[(int)ln] = '\0';
-            	
+
             	printf("\n");
 
 		//scanf("%s %s",firstName,lastName);
@@ -167,9 +169,11 @@ char enterChoice(void)
 		printf("Do you want to add another customer? Y/N\n");
 		//scanf("%c",&ch);
 		//fflush(stdin);
-		
+
 		ch = (char) fgetc(stdin);
-		
+
+		while(getchar() != '\n' && getchar() != EOF);
+
 		printf("DEBUGGING:  ch = %c\n\n",ch);
 
 		if((ch != 'Y' && ch != 'y') && (ch != 'N' && ch != 'n'))
