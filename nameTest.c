@@ -21,7 +21,7 @@
 
 int main (void)
 {
-    int i = 5;
+    	int i = 5;
 	char firstName [20];
 	char lastName [20];
 	char mobileNum [20];

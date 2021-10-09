@@ -1,0 +1,1 @@
+struct details * newCustomer (void);
