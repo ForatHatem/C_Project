@@ -1,4 +1,8 @@
 *.o
+<<<<<<< HEAD
 main
 *.so
 
+=======
+libcustom_ref.dll
+>>>>>>> d2e6f5ef754723193f319f905ed3417a6e78757d
