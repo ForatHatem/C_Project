@@ -13,6 +13,41 @@
 	double price;
 };*/
 
+int checkMobileNum (char*mobileNum)
+{
+	int N = 20, i = 0;
+	size_t ln = 0;
+	int errorFlag = 0;//default no error
+	int count = 0;
+	fgets(mobileNum,N,stdin);
+	ln = strlen(mobileNum) - 1;
+	if(mobileNum[(int)ln] == '\n')
+		mobileNum[(int)ln] = '\0';
+	
+	while(mobileNum[i] != '\0')
+	{
+		//check if all digits
+		if(mobileNum[i] >= '0' && mobileNum[i] <= '9'){}
+		else
+		{
+			errorFlag = 1;
+			break;
+		}
+		
+		i++;
+		count++;
+	}
+		//check if it starts with 04
+		
+	if(count < 10)
+		errorFlag = 1;
+	
+	if(mobileNum[0] != '0' && mobileNum[1] != '4')
+		errorFlag = 1;
+
+	return errorFlag; 
+}
+
 void enterMobileNum (char*mobileNum)
 {
 	int i = 0;
